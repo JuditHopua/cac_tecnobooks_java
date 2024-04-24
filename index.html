@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAC-TECNOBOOKS</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/2067fe5f8f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+</head>
+<body>
+    <header class="header" >
+        <nav>
+            <a href="#" class="linkLogo">
+                <i class="fa-solid fa-book"></i>
+                <span>CAC-TECNOBOOKS</span>
+            </a>
+            <ul class="listNav">
+                <li class="listItem"><a class="linkNav" href="#trends">Tendencias</a></li>
+                <li class="listItem"><a class="linkNav" href="./pages/register.html">Registrarse</a></li>
+                <li class="listItem"><a class="linkNav login" href="./pages/login.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main" >
+        <section class="sectionTitles">
+            <div class="containerTitles">
+                <h1 class="ppalTitle">Libros de tecnología <br> en un solo lugar</h1>
+                <h2 class="secondaryTitle">Disfruta donde quieras. <br> Cancela en cualquier momento.</h2>
+                <a class="registerBtn" href="./pages/register.html">Registrate</a>
+            </div>
+        </section>
+        <section class="seeker" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="titleSection">¿Qué estas buscando para leer?</h2>
+            <form class="booksSeeker">
+                <input type="text" placeholder="Buscar..." id="lookFor" name="lookFor" class="inputSeeker">
+                <input type="submit" value="Buscar" class="btnSeeker">
+            </form>
+        </section>
+        <hr>
+        <section id="trends" class="trendBooks" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="titleSection">Las tendencias de hoy</h2>
+            <div class="trendsGallery">
+                <a href="./pages/detail.html">
+                    <div class="books"> 
+                        <img class="imgTrends" src="./assets/img/book_1.png" alt="¿Qué es y (qué no es) la estadística?" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>¿Qué es y (qué no es) la estadística?</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_2.png" alt="50 principios de la Ciencia de Datos" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>50 principios de la Ciencia de Datos</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_3.png" alt="Big Data" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>Big Data</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_4.png" alt="Face to Facebook" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>Face to Facebook</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_5.png" alt="La era del individuo tirano" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>La era del individuo tirano</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_6.png" alt="Introducción a las bases de datos relacionales" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>Introducción a las bases de datos relacionales</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_7.png" alt="Vuelta por el metaverso" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>Vuelta por el metaverso</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="./pages/detail.html">
+                    <div class="books">
+                        <img class="imgTrends" src="./assets/img/book_8.png" alt="Excel financiero" loading="lazy">
+                        <div class="bookTitle">
+                            <h4>Excel financiero</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <button class="btn" >Anterior</button>  
+            <button class="btn">Siguiente</button>
+        </section>
+        <hr>
+        <section class="mostRead" >
+            <h2 class="titleSection">Los más leídos</h2>
+             <div class="mostReadGallery">
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_1.png" alt="Introducción al Machine Learning con Matlab" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_2.png" alt="Digitalmente rebeldes" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_3.png" alt="Hackear la Argentina" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_4.png" alt="Digital soft skills" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_5.png" alt="Fenómenos gamers" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_6.png" alt="Big data" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_7.png" alt="Machine Learning y Deep Learning usando Python, Scikit y Keras" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_8.png" alt="¿Te va a sustituir un algoritmo?" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_9.png" alt="Ciencias de Compuación en la escuela" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_10.png" alt="Una historia de las contraseñas" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_11.png" alt="The computer" loading="lazy">
+                </div>
+                <div class="mostReadBook">
+                    <img class="imgMostRead" src="./assets/img/most_read_12.png" alt="UF1286: Desarrollo y optimización de componentes de software para tareas administrativas de sistemas" loading="lazy">
+                </div>               
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <nav>
+            <ul class="listNav">
+                <li class="listItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+                <li class="listItem"><a class="linkNav" href="">Preguntas frecuentes</a></li>
+                <li class="listItem"><a class="linkNav" href="">Ayuda</a></li>
+                <li class="listItem"><a class="linkNav booksAdministrator" href="">Administrador Libros</a></li>
+            </ul>
+        </nav>
+        <a href="#main" class="arrowUp">
+            <i class="fa-regular fa-circle-up"></i>
+        </a>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script> 
+</body>
+</html>
