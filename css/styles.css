@@ -594,6 +594,7 @@ hr{
                     margin-bottom: 20px;
                     .textoCheck{
                         margin-left: 10px;
+                        margin-right: 20px;
                     }
                     color: #333333;
                     font-weight: 700;
@@ -838,5 +839,13 @@ form .errorMessage {
 }
 
 #loginForm #email.isValid, #password.isValid{
+    border: 2px solid green;
+}
+
+#registerForm #name.isInvalid, #surname.isInvalid, #email.isInvalid, #password.isInvalid, #born.isInvalid, #country.isInvalid {
+    border: 2px solid #ff3c00;
+}
+
+#registerForm #name.isValid, #surname.isValid, #email.isValid, #password.isValid, #born.isValid, #country.isValid {
     border: 2px solid green;
 }

@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("loginForm").addEventListener("submit", (event) => {
         event.preventDefault();
-        validarCampos();
+        fieldsValidation();
     });
 
     document.querySelectorAll(".formControl").forEach((input) => {
         input.addEventListener("keydown", (event) => {
             if (event.key === "Tab" || event.key === "Enter") {
                 event.preventDefault();
-                validarCampos();
+                fieldsValidation;
             }
         });
     });
 });
 
-const validarCampos = () => {
+const fieldsValidation = () => {
     resetErrorMessages();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
