@@ -825,3 +825,18 @@ hr{
         }
     }
 }
+
+/* estilos para los errores de validación de logueo y registro  */
+.errorMessage {
+    color: #ff0000;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+form #email.isInvalid, #password.isInvalid{
+    border: 2px solid #ff3c00;
+}
+
+form #email.isValid, #password.isValid{
+    border: 2px solid green;
+}
