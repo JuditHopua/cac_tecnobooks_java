@@ -1,3 +1,22 @@
+function trendsPagination(result, actualPage, booksPerPage) {
+    // obtengo listado de libros para la página
+    const initialBookOfPage = (actualPage - 1) * booksPerPage;
+    var books = result.slice(initialBookOfPage, initialBookOfPage + booksPerPage);
+
+    //creo la galeria de trends
+    const trendsGallery = document.createElement('div');
+    trendsGallery.classList.add('trendsGallery');
+    
+    // agrego el listado de libros
+    for(let bookPosition=0; bookPosition<books.length; bookPosition++){
+        const bookCard = createBookCard(books[bookPosition]);// Itero sobre 12 libros para la primera página
+        trendsGallery.appendChild(bookCard);// Añado la tarjeta del libro al contenedor
+    };
+        
+    // muestro los libros obtenidos
+     return trendsGallery;
+}
+
 // función para crear una tarjeta de libro
 function createBookCard(book){
 	//creo la tarjeta
@@ -8,7 +27,7 @@ function createBookCard(book){
 	// creo la imagen de la tarjeta
 	const cardImg = document.createElement('img');
 	cardImg.src = book.bookImage;
-	cardImg.alt = book.bookTitle;
+    cardImg.alt = book.bookTitle;
 	cardImg.loading = 'lazy';
     cardImg.classList.add('imgTrends');
    	// creo el cuerpo del titulo de la tarjeta
@@ -29,21 +48,9 @@ function createBookCard(book){
 	return cardLink;
 }
 
-function chargeTrendsGallery(result){
-    //creo la galeria de trends
-    const trendsGallery = document.createElement('div');
-    trendsGallery.classList.add('trendsGallery');
-    
-    // agrego el listado de libros
-    for(let bookPosition=0; bookPosition<20; bookPosition++){
-        const bookCard = createBookCard(result[bookPosition]);// Itero sobre 20 libros para la primera página
-        trendsGallery.appendChild(bookCard);// Añado la tarjeta del libro al contenedor
-    };
 
-    return trendsGallery;
-}
-
-function chargeTrendsSection(result){
+// cargo la sección de tendencias
+function chargeTrendsSection(result, actualPage){
     // obtengo la sección
     const booksSection = document.getElementById('trends');
     //limpio la sección
@@ -57,8 +64,16 @@ function chargeTrendsSection(result){
     //agrego el titulo de la sección
     booksSection.appendChild(titleSection);
 
-    //agrego el listado de libros
-    booksSection.appendChild(chargeTrendsGallery(result));
+    //agrego el listado de libros de la página actual
+    const booksPerPage = 12;
+    booksSection.appendChild(trendsPagination(result, actualPage, booksPerPage));
+
+    // variables
+    const totalBooks = result.length;
+    let noOfPages = totalBooks / booksPerPage;
+    if(totalBooks % booksPerPage){
+        noOfPages = Math.trunc(noOfPages + 1);
+    }
 
     //creo botones de paginación
     const backButton = document.createElement('button');
@@ -68,9 +83,35 @@ function chargeTrendsSection(result){
     forwardButton.textContent = 'Siguiente';
     forwardButton.classList.add('btn');
 
+    buttonControl(backButton, forwardButton, actualPage, noOfPages);
+
+    backButton.addEventListener('click', () => {
+        actualPage--;
+        chargeTrendsSection(result, actualPage);
+        //booksSection.appendChild(trendsPagination(result, actualPage, booksPerPage));
+    });
+    forwardButton.addEventListener('click', () => {
+        actualPage++;
+        chargeTrendsSection(result, actualPage);
+        //booksSection.appendChild(trendsPagination(result, actualPage, booksPerPage));
+    });
+
     // agrego los botones de paginación
     booksSection.appendChild(backButton);
     booksSection.appendChild(forwardButton);
+};
+
+function buttonControl(backButton, forwardButton, actualPage, noOfPages) {
+    if (actualPage == 1) {
+        backButton.disabled = true;
+    } else {
+        backButton.disabled = false;
+    }
+    if(actualPage == noOfPages) {
+        forwardButton.disabled = true;
+    } else {
+        forwardButton.disabled = false;
+    }
 }
 
 // datos de la API 
@@ -88,8 +129,8 @@ const showTrends = async function showTrends(){
 	try {
 		const response = await fetch(apiUrl, options);
 		const result = await response.json();
-		console.log(result);
-
+        var actualPage = 1;
+		
         /*const techBooks = [];
         result.forEach(book => {
            if(book.bookTitle.includes('TECH')) {
@@ -100,7 +141,7 @@ const showTrends = async function showTrends(){
         chargeTrendsSection(techBooks);
         // La API no tiene libros relacionados con "tech", "comput", "manual", "tutor"*/
 
-        chargeTrendsSection(result);
+        chargeTrendsSection(result, actualPage);
 	}
 	catch (error) {
 		console.error(error);
